@@ -18,8 +18,8 @@
   "expectedClaimCount": 37,
   "releaseSurface": {
     "algorithm": "sha256",
-    "sourceCommit": "c5d8023cc828607ef580a41956f14807a0b83951",
-    "pathSetSha256": "213a4211bc1a66001a9f827b197c1b7aff1194373527f28d43c7ea6f2ebd706c",
+    "sourceCommit": "2772f852f5438a824cf559b722c2f58b6781dfa4",
+    "pathSetSha256": "fdc3577841564bad94e1143aa1e30b8776abeda8b032189834f2aead7de86e44",
     "files": [
       {
         "path": "INSTALL.md",
@@ -173,8 +173,8 @@
       },
       {
         "path": "frontend/app/app.js",
-        "bytes": 451949,
-        "sha256": "5c3461f042ea4edef36820013f324a5e70f6b383e259cfd24a68a2b4b52035d2"
+        "bytes": 451984,
+        "sha256": "cc9343a03f0ed50cbcf0850dcba2ba197a8c86be297ec5c900d5c0184473b4bc"
       },
       {
         "path": "frontend/app/approved-sheet-effects.js",
@@ -1183,8 +1183,8 @@
       },
       {
         "path": "frontend/app/stationui.js",
-        "bytes": 927975,
-        "sha256": "b02c085e585c2db2bb76b5f7604601312049cb6817ae4ee07bae2f0c952d5513"
+        "bytes": 928028,
+        "sha256": "fde39210c14e8c7059bb93c1d0187776c2101f6fb30f2a16180124a4d98fce54"
       },
       {
         "path": "frontend/app/stepin.js",
@@ -1602,6 +1602,11 @@
         "sha256": "b548160ae97ed48f089c233861fc3d2586e87ba0b8746f9151c5f4670cc92f82"
       },
       {
+        "path": "frontend/css/labz.css",
+        "bytes": 7373,
+        "sha256": "c2c3122aef5d807a39ba1d7bcb73fec67afd5f33a7752c15d3878ecc1cda4a24"
+      },
+      {
         "path": "frontend/css/linewatch.css",
         "bytes": 4324,
         "sha256": "e1caffbee1c16791ce90284957738eada0577d6490e4c2b05823813aa84f8b2d"
@@ -1703,8 +1708,8 @@
       },
       {
         "path": "frontend/css/style.css",
-        "bytes": 104395,
-        "sha256": "0929f2a7c58a11c413a9826e61c361d837597fe6e0b1573d644c164e88338326"
+        "bytes": 105363,
+        "sha256": "546280c205055e8593d201b67044bc03541d18e151b1b2128670bc929c9c9e61"
       },
       {
         "path": "frontend/css/tasks.css",
@@ -1808,8 +1813,8 @@
       },
       {
         "path": "frontend/index.html",
-        "bytes": 98802,
-        "sha256": "ca1af29c33717bdab27ec0238e0b8da785eb12f8723db4c00386c6cf3f02774d"
+        "bytes": 99277,
+        "sha256": "3a358e4d7a4475d99d6a4a9c4f38f9eeeeecbda3d11bd91d5ca8c013e5bfbafe"
       },
       {
         "path": "frontend/js/arcade.js",
