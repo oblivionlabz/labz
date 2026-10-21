@@ -97,7 +97,14 @@ body.glass-demo.theme-void:not(.hud-mode) #screen-game #bottombar {
 }
 
 /* ---- 6. splash: the awakening ceremony. The rift is violet, the spill is
-   cyan, the floor grid keeps the vendor scroll. ---- */
+   cyan, the floor grid keeps the vendor scroll. ----
+   The emblem <img> ships in the markup for EVERY theme, so its off state lives
+   here unscoped (labz.css is always loaded); only VOID lights the rift. */
+.sp-emblem { display: none; }
+body.theme-void .sp-emblem {
+  display: block; width: min(22vh, 190px); height: auto; margin-bottom: 6px;
+  filter: drop-shadow(0 0 22px rgba(var(--labz-violet-rgb), 0.5)) drop-shadow(0 0 70px var(--ph-glow2));
+}
 body.theme-void #screen-title::before {
   content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
   background: radial-gradient(ellipse 60% 46% at 50% 42%, rgba(var(--labz-violet-rgb), 0.16), transparent 70%);
