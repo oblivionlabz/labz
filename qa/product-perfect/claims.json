@@ -18,7 +18,7 @@
   "expectedClaimCount": 37,
   "releaseSurface": {
     "algorithm": "sha256",
-    "sourceCommit": "2c257143bf10b26b6bcacfcbdd8c30b761c222e9",
+    "sourceCommit": "94a7edeea4f66fd6321920d7d7d2aa6e1d81a598",
     "pathSetSha256": "fdc3577841564bad94e1143aa1e30b8776abeda8b032189834f2aead7de86e44",
     "files": [
       {
@@ -1183,8 +1183,8 @@
       },
       {
         "path": "frontend/app/stationui.js",
-        "bytes": 928028,
-        "sha256": "fde39210c14e8c7059bb93c1d0187776c2101f6fb30f2a16180124a4d98fce54"
+        "bytes": 929041,
+        "sha256": "1057fc5cf60813cd115589a6261233374aae19bfc5226b08a17d8434b3dadcaa"
       },
       {
         "path": "frontend/app/stepin.js",
@@ -1603,8 +1603,8 @@
       },
       {
         "path": "frontend/css/labz.css",
-        "bytes": 17719,
-        "sha256": "ca8e414212ef32f82e698c8a965d27fa4b5b404a1a2b2605fe72d8593de8f619"
+        "bytes": 20053,
+        "sha256": "32563c9de1d96ec1ff4d0526e9bf2350eb1ce8287cc770b753deba9673beab9a"
       },
       {
         "path": "frontend/css/linewatch.css",
