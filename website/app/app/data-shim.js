@@ -19,6 +19,10 @@ function registerAgent(id, color) {
    here + a matching sprite set in assets/sprites/manifest.json. `scale` is the
    per-set downscale applied at tint time (crew sprites render on a 92px canvas). */
 DATA.SKINS = {
+  /* OBLIVION LABZ original — generated for this station (a770 Qwen-Image key
+     poses -> research/labz-assets/sprite-factory.py -> approved_labzshade/).
+     Geometry measured off approved_android: 76px standing, foot line y=112. */
+  shade: {"name":"Shade Knight","set":"approved_labzshade","scale":0.25,"sourceStandingHeight":76},
   blank: {"name":"Cadet","set":"approved_android","scale":0.25,"sourceStandingHeight":76},
   astronaut: {"name":"Retro Astronaut","set":"approved_astronaut","scale":0.25,"sourceStandingHeight":76},
   robot: {"name":"Robot","set":"approved_robot","scale":0.25,"sourceStandingHeight":76},
@@ -75,4 +79,4 @@ DATA.SKINS = {
 };
 // Keep the retired duplicate readable in old saves without offering it in the picker.
 Object.defineProperty(DATA.SKINS, 'minionchar', { value: DATA.SKINS.station_minion });
-DATA.DEFAULT_SKIN = 'blank';
+DATA.DEFAULT_SKIN = 'shade';
