@@ -134,7 +134,7 @@ const appearance = { light: { color: [96, 168, 240], strength: 0.5, dx: 1, dy: 0
 test('normal desktop roster renders the selected refresh without preview flags, with planted walking feet', async () => {
   const selected = JSON.parse(fs.readFileSync(path.join(frontend, 'assets/skin-study-0914/runtime-motion.json')));
   const { sprites, catalog } = await harness(true);
-  assert.equal(Object.keys(catalog).length, 53);
+  assert.equal(Object.keys(catalog).length, 54); // 53 vendor + approved_labzshade (Oblivion Labz original, 2026-10-21)
   for (const skin of selected.skins) {
     assert.equal(catalog[skin.skin].set, skin.renderSet, skin.skin + ' keeps its saved ID');
     await sprites.ensureSkin(skin.skin);
@@ -160,7 +160,9 @@ test('normal desktop roster renders the selected refresh without preview flags, 
     }
   }
   assert.equal(catalog.minionchar, catalog.station_minion, 'retired duplicate remains readable in existing saves');
-  assert.equal(sprites.setForBody(body({ skin: 'unknown' })), 'approved_android', 'unknown/default skin uses refresh');
+  // 2026-10-21: the default skin is now the Oblivion Labz original (shade ->
+  // approved_labzshade); unknown skins fall back to it, as the renderer does.
+  assert.equal(sprites.setForBody(body({ skin: 'unknown' })), 'approved_labzshade', 'unknown/default skin uses the Labz default');
 });
 
 test('standing breath fixes the real measured foot line, keeps native masters and restores sampling state', async () => {
