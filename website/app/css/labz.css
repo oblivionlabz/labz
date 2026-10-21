@@ -90,6 +90,35 @@ body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row.selected {
   box-shadow: inset 0 0 0 1px var(--ph), 0 0 16px var(--ph-glow2), 0 0 26px rgba(var(--labz-violet-rgb), 0.16);
 }
 
+/* ---- 4b. the rank pin (S3): the Solo Leveling rank shield on each crew row.
+   The letter is DERIVED from the vendor's own Xp engine (stationui.js crewRank:
+   band calibrating/building/steady/reliable/trusted -> E/C/B/A/S) — the badge
+   can only read as high as the agent has earned, and the dossier keeps the
+   full readout in words. Shape law from spec-dna-crew.md §2: tall hexagonal
+   shield, pointed lower vertex, rank-hue keyline with a near-white hot edge
+   and same-color bloom; S gold, A violet, B cyan, C pale cyan, E cool gray.
+   display:none is the DEFAULT (unscoped, like .sp-emblem): the pin exists in
+   the DOM for every phosphor but only VOID wears it, so amber/green/... rows
+   stay pixel-identical. Anchored top-left over the portrait's left edge —
+   .crew-row is already position:relative (interface.css:133), and the vendor
+   status dot owns top-right (crew-glass.css:68), so the two never collide. ---- */
+#crew .crew-rank { display: none; }
+body.theme-void #crew .crew-rank {
+  display: grid; place-items: center; position: absolute; left: 2px; top: 2px; z-index: 3;
+  width: 15px; height: 21px; pointer-events: none; padding-bottom: 4px;
+  font: 700 11px/1 'VT323', 'Courier New', monospace; letter-spacing: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 68%, 50% 100%, 0 68%);
+  color: var(--ph-bright);
+  background: linear-gradient(180deg, rgba(var(--labz-violet-rgb), .28), rgba(0, 0, 0, .72));
+  filter: drop-shadow(0 0 5px rgba(var(--labz-violet-rgb), .55));
+}
+/* rank hues: the mockup's five-step ladder, mapped onto the band it encodes */
+body.theme-void #crew .crew-rank.r-s { color: var(--gold); background: linear-gradient(180deg, rgba(255, 197, 61, .30), rgba(0, 0, 0, .72)); filter: drop-shadow(0 0 6px rgba(255, 197, 61, .6)); }
+body.theme-void #crew .crew-rank.r-a { color: var(--labz-violet); filter: drop-shadow(0 0 6px rgba(var(--labz-violet-rgb), .65)); }
+body.theme-void #crew .crew-rank.r-b { color: var(--ph-bright); filter: drop-shadow(0 0 5px var(--ph-glow)); }
+body.theme-void #crew .crew-rank.r-c { color: var(--ph); opacity: .9; filter: drop-shadow(0 0 4px var(--ph-glow2)); }
+body.theme-void #crew .crew-rank.r-e { color: #9aa0b4; background: linear-gradient(180deg, rgba(154, 160, 180, .16), rgba(0, 0, 0, .7)); filter: drop-shadow(0 0 3px rgba(154, 160, 180, .35)); }
+
 /* ---- 5. the command bar: engraved console, cyan cursor pool ---- */
 body.glass-demo.theme-void:not(.hud-mode) #screen-game #bottombar {
   box-shadow: 0 -2px 0 rgba(var(--labz-violet-rgb), 0.35), 0 -14px 30px rgba(0, 0, 0, 0.6);

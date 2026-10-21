@@ -1813,6 +1813,18 @@ const StationUI = typeof document === 'undefined' ? {} : (() => {
   function crewPortrait(a) {
     return '<span class="crew-portrait" aria-hidden="true"><img alt="" draggable="false" hidden></span>';
   }
+  // LABZ rank pin (css/labz.css §4b): the Solo Leveling rank letter, DERIVED from the real Xp engine's
+  // confidence band — never invented, never a second ladder. The band is the vendor's own honesty law
+  // (xp.js compute(): 'calibrating' until enough samples, then building/steady/reliable/trusted), so the
+  // badge can only ever read as high as the agent has actually earned. E→S maps the five bands onto the
+  // mockup's five ranks (spec-dna-crew.md §2). Hidden by default; only VOID displays it, so every vendor
+  // phosphor row is pixel-identical. aria-hidden: the dossier carries the full readout in words.
+  const RANK_BY_BAND = { calibrating: 'E', building: 'C', steady: 'B', reliable: 'A', trusted: 'S' };
+  function crewRank(a) {
+    if (typeof Xp === 'undefined' || !a.stats) return '';
+    const letter = RANK_BY_BAND[Xp.compute(a.stats).band] || 'E';
+    return '<span class="crew-rank r-' + letter.toLowerCase() + '" aria-hidden="true">' + letter + '</span>';
+  }
   // the empty-crew mark: the dock's own AGENTS line icon (glass-demo.js menuPaths.agents), drawn as SVG — the '▯' glyph
   // came from a fallback font and read as a missing-font box above NO AGENTS ON STATION
   const NO_AGENTS_MARK = '<span class="es-glyph" aria-hidden="true"><svg viewBox="0 0 16 16" focusable="false"><path d="M5 2h6v5H5zM3 14v-4h10v4"/></svg></span>';
@@ -1827,6 +1839,7 @@ const StationUI = typeof document === 'undefined' ? {} : (() => {
     ul.innerHTML = present.map((a, i) =>
       '<li class="crew-row" role="button" tabindex="0" aria-label="' + (present.length > 1 ? 'Show sessions with ' + esc(a.name || a.id) + '; Shift+F10 for the dossier" aria-keyshortcuts="Shift+F10' : 'Open dossier for ' + esc(a.name || a.id)) + '" data-i="' + i + '" data-agent-id="' + esc(a.id) + '" style="--ci:' + i + '">' +
       crewPortrait(a) +
+      crewRank(a) +
       '<span class="dot on"></span>' +
       '<div class="crew-main">' +
       '<div class="crew-name" style="color:' + esc(a.color) + '"><span class="crew-nm">' + esc(a.name) + '</span>' +
