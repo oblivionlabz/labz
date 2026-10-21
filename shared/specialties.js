@@ -85,7 +85,7 @@
       starters: ['Where should <business / project> focus next?', 'Size up the market for <idea>', 'Pressure-test this plan: <…>']
     },
     {
-      id: 'chief', name: 'Chief of Staff', emoji: '❂', tagline: 'Your generalist right hand',
+      id: 'chief', name: 'Chief of Staff', emoji: '❂', tagline: 'Your generalist right hand', skin: 'labz_chief',
       blurb: 'The all-rounder for whatever comes up — triages, handles the broad asks, breaks big ones into a plan.',
       persona: 'friendly', model: 'balanced', accent: '#e8b13f',
       tags: { general: 1 },
@@ -95,7 +95,7 @@
       starters: ['Help me figure out <…>', 'Plan out <project>', 'Just be my all-around assistant']
     },
     {
-      id: 'opportunist', name: 'Opportunity Finder', emoji: '✷', tagline: 'Openings you could actually monetize',
+      id: 'opportunist', name: 'Opportunity Finder', emoji: '✷', tagline: 'Openings you could actually monetize', skin: 'labz_opportunist',
       blurb: 'Hunts openings you could actually make money on — matched to your skills and time, sized with live demand evidence, ranked, with the first week mapped.',
       persona: 'direct', model: 'reasoning', accent: '#f2c14e',
       tags: { research: 0.6, general: 0.4 },
@@ -105,7 +105,7 @@
       starters: ['Find monetizable opportunities that fit me', 'Is there money in <niche / idea>?', 'What could I launch with <skills / assets> in <time>?']
     },
     {
-      id: 'researcher', name: 'Researcher', emoji: '◎', tagline: 'Answers with every claim sourced',
+      id: 'researcher', name: 'Researcher', emoji: '◎', tagline: 'Answers with every claim sourced', skin: 'labz_researcher',
       blurb: 'Digs through the live web, cross-checks sources, and briefs you tightly — answer first, evidence under it.',
       persona: 'direct', model: 'balanced', accent: '#6fa8bf',
       tags: { research: 1 },
@@ -115,7 +115,7 @@
       starters: ['Brief me on the latest in <topic>', 'Compare <A> vs <B> and recommend one', 'Fact-check this claim: <…>']
     },
     {
-      id: 'analyst', name: 'Analyst', emoji: '▦', tagline: 'Turns your data into an answer',
+      id: 'analyst', name: 'Analyst', emoji: '▦', tagline: 'Turns your data into an answer', skin: 'labz_analyst',
       blurb: 'Turns data into answers — runs the analysis, builds the sheet, tells you what it actually means.',
       persona: 'direct', model: 'reasoning', accent: '#88b6c4',
       tags: { research: 0.6, code: 0.4 },
@@ -125,7 +125,7 @@
       starters: ['Analyze this dataset: <file>', 'Build a spreadsheet that <…>', 'What story does this data tell?']
     },
     {
-      id: 'marketer', name: 'Marketer', emoji: '❢', tagline: 'Picks the channel and works it',
+      id: 'marketer', name: 'Marketer', emoji: '❢', tagline: 'Picks the channel and works it', skin: 'labz_marketer',
       blurb: 'Your head of marketing — nails the positioning, picks the channels that fit, and ships campaign briefs with real hooks and a measurable goal.',
       persona: 'friendly', model: 'balanced', accent: '#e79ac0',
       tags: { general: 0.6, research: 0.4 },
@@ -135,7 +135,7 @@
       starters: ['Build a marketing plan for <product>', 'Find the right channels for <audience>', 'Write campaign angles for <launch>']
     },
     {
-      id: 'copywriter', name: 'Copywriter', emoji: '✒', tagline: 'Words that have to sell something',
+      id: 'copywriter', name: 'Copywriter', emoji: '✒', tagline: 'Words that have to sell something', skin: 'labz_copywriter',
       blurb: 'Writes the copy that has to earn its place — ads, emails, landing and sales pages — one audience, one promise, and the proof named rather than invented.',
       persona: 'direct', model: 'reasoning', accent: '#f2a04b',
       tags: { general: 1 },
@@ -145,7 +145,7 @@
       starters: ['Write the copy for <product / page>', 'Give me ad variants for <…>', 'Write a welcome email sequence']
     },
     {
-      id: 'webdesigner', name: 'Web Designer', emoji: '▧', tagline: 'Designs and builds the actual pages',
+      id: 'webdesigner', name: 'Web Designer', emoji: '▧', tagline: 'Designs and builds the actual pages', skin: 'labz_webdesigner',
       blurb: 'Takes a website from rough idea to real pages — hierarchy, layout, responsive behaviour and the copy that carries it — then checks it in a real browser.',
       persona: 'friendly', model: 'reasoning', accent: '#d0c060',
       tags: { code: 0.5, general: 0.5 },
@@ -155,7 +155,7 @@
       starters: ['Build me a website for <…>', 'Redesign my website so it looks less generic', 'Fix how my site looks on mobile']
     },
     {
-      id: 'publisher', name: 'Content Manager', emoji: '◍', tagline: 'Keeps the calendar full and shipping',
+      id: 'publisher', name: 'Content Manager', emoji: '◍', tagline: 'Keeps the calendar full and shipping', skin: 'labz_publisher',
       blurb: 'Gets the right work to the right platform at the right time — content calendar, per-platform adaptation, pre-publish checklist. You press publish.',
       persona: 'calm', model: 'balanced', accent: '#d0b45c',
       tags: { general: 1 },
@@ -165,7 +165,7 @@
       starters: ['Build this week\'s content calendar for <…>', 'Adapt <piece> for <platform(s)>', 'Stage <post> with the pre-publish checklist']
     },
     {
-      id: 'producer', name: 'Video Producer', emoji: '▶', tagline: 'Ready-to-shoot video packages',
+      id: 'producer', name: 'Video Producer', emoji: '▶', tagline: 'Ready-to-shoot video packages', skin: 'labz_producer',
       blurb: 'Turns ideas into ready-to-shoot UGC packages — hooks, shot list, caption, cover — built on what\'s working in your niche right now.',
       persona: 'friendly', model: 'balanced', accent: '#f2884b',
       tags: { general: 1 },
@@ -175,7 +175,7 @@
       starters: ['Package a UGC video about <…>', 'What formats are working in <niche> right now?', 'Turn <long video / post> into short-form cuts']
     },
     {
-      id: 'writer', name: 'Scriptwriter', emoji: '✎', tagline: 'Scripts, hooks & retention',
+      id: 'writer', name: 'Scriptwriter', emoji: '✎', tagline: 'Scripts, hooks & retention', skin: 'labz_writer',
       blurb: 'Writes scripts that hold attention — beat-marked, timed, and in your voice — with alternate hooks to test.',
       persona: 'friendly', model: 'balanced', accent: '#cf9de0',
       tags: { general: 1 },
@@ -185,7 +185,7 @@
       starters: ['Script a <length> video about <…>', 'Write 5 hooks for <topic>', 'Punch up this script: <…>']
     },
     {
-      id: 'ghostwriter', name: 'Ghostwriter', emoji: '✍', tagline: 'Writes as you, not like an AI',
+      id: 'ghostwriter', name: 'Ghostwriter', emoji: '✍', tagline: 'Writes as you, not like an AI', skin: 'labz_ghostwriter',
       blurb: 'Learns your voice from things you actually wrote — your rhythm, your words, the phrases you never use — then drafts in it, close enough to send.',
       persona: 'friendly', model: 'balanced', accent: '#c79bdc',
       tags: { general: 1 },
@@ -195,7 +195,7 @@
       starters: ['Learn my voice from these and draft <thing>', 'Rewrite this so it sounds like me', 'Reply to this the way I would']
     },
     {
-      id: 'prospector', name: 'Lead Finder', emoji: '⛏', tagline: 'Qualified, evidence-backed lead lists',
+      id: 'prospector', name: 'Lead Finder', emoji: '⛏', tagline: 'Qualified, evidence-backed lead lists', skin: 'labz_prospector',
       blurb: 'Fills your pipeline — finds where your ideal customers gather and builds qualified, evidence-backed lead lists.',
       persona: 'direct', model: 'balanced', accent: '#8ac07a',
       tags: { research: 0.7, general: 0.3 },
@@ -205,7 +205,7 @@
       starters: ['Build a lead list for <ideal customer>', 'Where do <audience> gather online?', 'Qualify and rank these leads: <…>']
     },
     {
-      id: 'negotiator', name: 'Negotiator', emoji: '⇋', tagline: 'Bills, refunds, rates & disputes',
+      id: 'negotiator', name: 'Negotiator', emoji: '⇋', tagline: 'Bills, refunds, rates & disputes', skin: 'labz_negotiator',
       blurb: 'Builds the evidence case for a better price or a refund, then drafts the exact words to send — with the rebuttals answered and the walk-away set before you open.',
       persona: 'direct', model: 'reasoning', accent: '#d98a5a',
       tags: { research: 0.5, general: 0.5 },
@@ -215,7 +215,7 @@
       starters: ['Get my <bill> down', 'Draft a refund case for <purchase>', 'Help me negotiate this rate: <details>']
     },
     {
-      id: 'treasurer', name: 'Treasurer', emoji: '▥', tagline: 'Finds what you are quietly paying for',
+      id: 'treasurer', name: 'Treasurer', emoji: '▥', tagline: 'Finds what you are quietly paying for', skin: 'labz_treasurer',
       blurb: 'Watches the money — tracks spend, audits costs against live prices to find the same thing cheaper, and keeps the books honest.',
       persona: 'calm', model: 'reasoning', accent: '#7fb8a0',
       tags: { general: 0.6, code: 0.4 },
@@ -225,7 +225,7 @@
       starters: ['Run a cost audit on <these expenses>', 'Find a cheaper way to run <service / stack>', 'How am I tracking against <budget>?']
     },
     {
-      id: 'paralegal', name: 'Legal Assistant', emoji: '⚖', tagline: 'The clauses that will bite you',
+      id: 'paralegal', name: 'Legal Assistant', emoji: '⚖', tagline: 'The clauses that will bite you', skin: 'labz_paralegal',
       blurb: 'Reads what you are about to sign and surfaces the clauses that will bite — quoted word for word, ranked by what they could actually cost you.',
       persona: 'direct', model: 'reasoning', accent: '#9fc0c4',
       tags: { research: 0.7, general: 0.3 },
@@ -235,7 +235,7 @@
       starters: ['Read this contract before I sign it: <file>', 'What is buried in these terms of service?', 'Check this lease for anything that bites']
     },
     {
-      id: 'support', name: 'Support Agent', emoji: '☏', tagline: 'Drafts customer replies, spots the repeats',
+      id: 'support', name: 'Support Agent', emoji: '☏', tagline: 'Drafts customer replies, spots the repeats', skin: 'labz_support',
       blurb: 'Drafts replies in your company voice, then notices the question that keeps arriving and writes the help doc that stops it arriving again.',
       persona: 'friendly', model: 'balanced', accent: '#70b8c8',
       tags: { general: 1 },
@@ -245,7 +245,7 @@
       starters: ['Draft replies to these customer questions', 'Turn our repeat questions into a FAQ', 'Draft a reply to this angry customer']
     },
     {
-      id: 'envoy', name: 'Inbox Manager', emoji: '✉', tagline: 'One desk for every inbox',
+      id: 'envoy', name: 'Inbox Manager', emoji: '✉', tagline: 'One desk for every inbox', skin: 'labz_envoy',
       blurb: 'Runs all your inboxes from one desk — triages what landed, drafts replies in your voice, and holds them for your go-ahead.',
       persona: 'friendly', model: 'balanced', accent: '#6fbcc0',
       tags: { general: 1 },
@@ -255,7 +255,7 @@
       starters: ['Triage my unread messages', 'Draft replies to <thread / client>', 'Which threads are slipping?']
     },
     {
-      id: 'registrar', name: 'Relationship Manager', emoji: '⊜', tagline: 'Remembers the people so you do not',
+      id: 'registrar', name: 'Relationship Manager', emoji: '⊜', tagline: 'Remembers the people so you do not', skin: 'labz_registrar',
       blurb: 'Keeps what actually matters about everyone you deal with — what they said, what you promised, who has gone quiet — and tells you what is due.',
       persona: 'friendly', model: 'balanced', accent: '#c0a0c8',
       tags: { general: 1 },
@@ -265,7 +265,7 @@
       starters: ['Remember what <person> told me: <…>', 'Who am I overdue to reply to?', 'Brief me on <person> before we talk']
     },
     {
-      id: 'jobhunter', name: 'Job Hunter', emoji: '⊡', tagline: 'Applications tailored, interviews drilled',
+      id: 'jobhunter', name: 'Job Hunter', emoji: '⊡', tagline: 'Applications tailored, interviews drilled', skin: 'labz_jobhunter',
       blurb: 'Finds roles actually worth your time, tailors each application to the posting\'s own language, and drills you on what they will really ask.',
       persona: 'friendly', model: 'balanced', accent: '#6fc79b',
       tags: { research: 0.6, general: 0.4 },
@@ -275,7 +275,7 @@
       starters: ['Find roles that fit me: <background>', 'Tailor my resume to this posting: <url>', 'Prep me for an interview at <company>']
     },
     {
-      id: 'tutor', name: 'Teacher', emoji: '✧', tagline: 'Teaches it until it sticks',
+      id: 'tutor', name: 'Teacher', emoji: '✧', tagline: 'Teaches it until it sticks', skin: 'labz_tutor',
       blurb: 'Teaches you a topic from where you actually are — clear explanations, worked examples, a real study plan.',
       persona: 'friendly', model: 'balanced', accent: '#b7a7e0',
       tags: { research: 0.5, general: 0.5 },
@@ -285,7 +285,7 @@
       starters: ['Teach me <topic> from scratch', 'Build me a study plan for <goal>', 'Explain <concept> with an example']
     },
     {
-      id: 'taskmaster', name: 'Coach', emoji: '✜', tagline: 'Holds you to what you said',
+      id: 'taskmaster', name: 'Coach', emoji: '✜', tagline: 'Holds you to what you said', skin: 'labz_taskmaster',
       blurb: 'Records your commitments in your own words, then checks them against what actually happened — honest about slippage, and always one next action.',
       persona: 'direct', model: 'balanced', accent: '#cf7d6a',
       tags: { general: 1 },
@@ -295,7 +295,7 @@
       starters: ['Hold me to this: <commitment>', 'How am I doing on what I said I would do?', 'Set up a weekly check-in on <goal>']
     },
     {
-      id: 'provisioner', name: 'Home Manager', emoji: '⌬', tagline: 'Meals, shopping, renewals & the admin',
+      id: 'provisioner', name: 'Home Manager', emoji: '⌬', tagline: 'Meals, shopping, renewals & the admin', skin: 'labz_provisioner',
       blurb: 'Runs the household side — a week of meals you will actually cook, one shopping list, and the renewals and warranties that cost money when forgotten.',
       persona: 'friendly', model: 'fast', accent: '#c8b070',
       tags: { general: 1 },
@@ -305,7 +305,7 @@
       starters: ['Plan my meals for the week', 'What renewals are coming up?', 'Sort my documents and build a register']
     },
     {
-      id: 'sentinel', name: 'Privacy Guard', emoji: '⍟', tagline: 'Your public exposure, and how to cut it',
+      id: 'sentinel', name: 'Privacy Guard', emoji: '⍟', tagline: 'Your public exposure, and how to cut it', skin: 'labz_sentinel',
       blurb: 'Sweeps what is publicly exposed about you, ranks it by what someone could actually do with it, and hands back the exact step that removes each one.',
       persona: 'calm', model: 'reasoning', accent: '#a0b4d0',
       tags: { research: 0.8, general: 0.2 },
@@ -315,7 +315,7 @@
       starters: ['What can strangers find about me online?', 'Help me scrub my data from broker sites', 'Check my accounts for recovery weaknesses']
     },
     {
-      id: 'scout', name: 'Scout', emoji: '◈', tagline: 'Watches, and only speaks on a change',
+      id: 'scout', name: 'Scout', emoji: '◈', tagline: 'Watches, and only speaks on a change', skin: 'labz_scout',
       blurb: 'Keeps watch on the sources you care about and pings you the moment something changes — fast, no noise. Pairs with messaging + cron.',
       persona: 'direct', model: 'fast', accent: '#5f97ae',
       tags: { research: 0.8, general: 0.2 },
@@ -325,7 +325,7 @@
       starters: ['Watch <source> and alert me on <criteria>', 'Tell me the moment <thing> changes', 'Ping me if <price / status / post> crosses <bar>']
     },
     {
-      id: 'nightwatch', name: 'Night Shift', emoji: '☾', tagline: 'Works the queue while you sleep',
+      id: 'nightwatch', name: 'Night Shift', emoji: '☾', tagline: 'Works the queue while you sleep', skin: 'labz_nightwatch',
       blurb: 'Takes the unattended shift — grinds through the backlog, parks anything irreversible for you, and leaves one handover waiting in the morning.',
       persona: 'calm', model: 'balanced', accent: '#9fb0d0',
       tags: { general: 0.6, research: 0.4 },
@@ -335,7 +335,7 @@
       starters: ['Work through this list overnight: <items>', 'Take the backlog and hand it back in the morning', 'Grind on <task> and park anything risky']
     },
     {
-      id: 'foreman', name: 'Team Lead', emoji: '▚', tagline: 'Splits big jobs across the crew',
+      id: 'foreman', name: 'Team Lead', emoji: '▚', tagline: 'Splits big jobs across the crew', skin: 'labz_foreman',
       blurb: 'Cuts a job too big for one agent into pieces that genuinely run in parallel, hands each to the right specialist, then merges what comes back into one answer.',
       persona: 'direct', model: 'reasoning', accent: '#c9a86f',
       tags: { general: 0.6, research: 0.4 },
@@ -345,7 +345,7 @@
       starters: ['Break this up and run it across the crew: <job>', 'Research <topic> from five angles at once', 'Audit this whole repo in parallel']
     },
     {
-      id: 'pilot', name: 'Virtual Assistant', emoji: '⎈', tagline: 'Does the clicking for you, on real sites',
+      id: 'pilot', name: 'Virtual Assistant', emoji: '⎈', tagline: 'Does the clicking for you, on real sites', skin: 'labz_pilot',
       blurb: 'Signs in, clicks through and pulls what you need out of portals, dashboards and forms — operating a real browser, not guessing about one.',
       persona: 'direct', model: 'reasoning', accent: '#6fb0d9',
       tags: { research: 0.6, general: 0.4 },
@@ -355,7 +355,7 @@
       starters: ['Log into <site> and pull <thing>', 'Fill this form out for me: <url>', 'Get the numbers behind <dashboard url>']
     },
     {
-      id: 'harvester', name: 'Data Collector', emoji: '▩', tagline: 'Turns the live web into a dataset',
+      id: 'harvester', name: 'Data Collector', emoji: '▩', tagline: 'Turns the live web into a dataset', skin: 'labz_harvester',
       blurb: 'Collects scattered pages into one structured file you own — schema fixed first, every row stamped with the page it came from, and the gaps counted honestly.',
       persona: 'direct', model: 'balanced', accent: '#8ab8a0',
       tags: { research: 0.7, code: 0.3 },
@@ -365,7 +365,7 @@
       starters: ['Build me a dataset of <thing> from <sources>', 'Collect every <item> on <site> into a spreadsheet', 'Turn these pages into structured data: <urls>']
     },
     {
-      id: 'drafter', name: 'Product Manager', emoji: '⊟', tagline: 'Decides what to build, and what done means',
+      id: 'drafter', name: 'Product Manager', emoji: '⊟', tagline: 'Decides what to build, and what done means', skin: 'labz_drafter',
       blurb: 'Takes the thing you can only half-describe and makes it buildable — the smallest useful version, criteria anyone can check, edge cases decided, cuts named out loud.',
       persona: 'direct', model: 'reasoning', accent: '#7fb0c8',
       tags: { code: 0.5, general: 0.5 },
@@ -375,7 +375,7 @@
       starters: ['Turn this idea into a spec: <…>', 'What is the smallest useful version of <…>?', 'Write acceptance criteria for <feature>']
     },
     {
-      id: 'engineer', name: 'Engineer', emoji: '⌗', tagline: 'Reads the code before it changes it',
+      id: 'engineer', name: 'Engineer', emoji: '⌗', tagline: 'Reads the code before it changes it', skin: 'labz_engineer',
       blurb: 'Reads the codebase before touching it, makes focused edits, and verifies they actually work.',
       persona: 'direct', model: 'reasoning', accent: '#7bc88a',
       tags: { code: 1 },
@@ -385,7 +385,7 @@
       starters: ['Fix this bug: <paste the error>', 'Add <feature> to <file>', 'Refactor <X> for readability']
     },
     {
-      id: 'dbhelper', name: 'Database Engineer', emoji: '⛁', tagline: 'Schema, queries & who can read what',
+      id: 'dbhelper', name: 'Database Engineer', emoji: '⛁', tagline: 'Schema, queries & who can read what', skin: 'labz_dbhelper',
       blurb: 'Designs tables that will not need rewriting and access rules that keep one user out of another user\'s data — then tries to break them itself.',
       persona: 'direct', model: 'reasoning', accent: '#9fb070',
       tags: { code: 0.8, research: 0.2 },
@@ -395,7 +395,7 @@
       starters: ['Design the database for <app>', 'Check my access rules keep users apart', 'Why is this query slow?']
     },
     {
-      id: 'apptester', name: 'QA Tester', emoji: '◉', tagline: 'Walks your app and finds what breaks',
+      id: 'apptester', name: 'QA Tester', emoji: '◉', tagline: 'Walks your app and finds what breaks', skin: 'labz_apptester',
       blurb: 'Uses your app the way a real person would — the wrong order, the empty form, the back button mid-flow — and reports only what actually broke, with the steps to repeat it.',
       persona: 'direct', model: 'reasoning', accent: '#7fc0b0',
       tags: { code: 0.6, general: 0.4 },
@@ -405,7 +405,7 @@
       starters: ['Test my app and tell me what breaks: <url>', 'Try to break my signup flow', 'Check <app> with empty and huge inputs']
     },
     {
-      id: 'auditor', name: 'Security Auditor', emoji: '⊚', tagline: 'Leaked keys, open data, unguarded routes',
+      id: 'auditor', name: 'Security Auditor', emoji: '⊚', tagline: 'Leaked keys, open data, unguarded routes', skin: 'labz_auditor',
       blurb: 'Hunts the ways an AI-built app leaks — keys shipped to the browser, database rules left open, endpoints anyone can call — each one proven, ranked by blast radius, each with the fix.',
       persona: 'direct', model: 'reasoning', accent: '#cf8a7d',
       tags: { code: 0.7, research: 0.3 },
@@ -415,7 +415,7 @@
       starters: ['Audit my app for security holes', 'Did I leak any API keys?', 'Check my database access rules']
     },
     {
-      id: 'deployer', name: 'DevOps Engineer', emoji: '▲', tagline: 'Gets it from your machine to live',
+      id: 'deployer', name: 'DevOps Engineer', emoji: '▲', tagline: 'Gets it from your machine to live', skin: 'labz_deployer',
       blurb: 'Reproduces the real production build, reads the first error instead of the last, fixes the actual cause, then proves the deployed site responds.',
       persona: 'calm', model: 'reasoning', accent: '#8fb8d8',
       tags: { code: 0.8, general: 0.2 },
@@ -445,7 +445,7 @@
      and anchor (spoken bulletins) are real, but neither is a day-one hire for most Commanders. */
   const ARCHETYPES = [
     {
-      id: 'anchor', name: 'Newsreader', emoji: '◐', tagline: 'Reads you the briefing, out loud',
+      id: 'anchor', name: 'Newsreader', emoji: '◐', tagline: 'Reads you the briefing, out loud', skin: 'labz_anchor',
       blurb: 'Turns the day\'s findings into a spoken bulletin you listen to instead of read — written for the ear, short enough for the walk to the kitchen.',
       persona: 'calm', model: 'balanced', accent: '#c98f6a',
       tags: { research: 0.7, general: 0.3 },
@@ -455,7 +455,7 @@
       starters: ['Read me today\'s briefing on <topic>', 'Turn this report into a spoken bulletin', 'Give me a two-minute audio update on <…>']
     },
     {
-      id: 'medic', name: 'Health Organizer', emoji: '⊕', tagline: 'Health records, and what to ask',
+      id: 'medic', name: 'Health Organizer', emoji: '⊕', tagline: 'Health records, and what to ask', skin: 'labz_medic',
       blurb: 'Organizes your health records into a timeline, logs symptoms as plain dated observations, and builds the appointment sheet — clerical work only, never a diagnosis.',
       persona: 'calm', model: 'reasoning', accent: '#b0c8c0',
       tags: { general: 0.6, research: 0.4 },
@@ -465,7 +465,7 @@
       starters: ['Organize these medical records: <files>', 'Help me prep questions for my appointment', 'Track this symptom over time']
     },
     {
-      id: 'diplomat', name: 'Mediator', emoji: '⊛', tagline: 'The message you have been avoiding',
+      id: 'diplomat', name: 'Mediator', emoji: '⊛', tagline: 'The message you have been avoiding', skin: 'labz_diplomat',
       blurb: 'Drafts the boundary, the apology or the bad news — clear and kind, with the lines you would regret cut out and shown to you so it stays your call.',
       persona: 'calm', model: 'reasoning', accent: '#9fb8c8',
       tags: { general: 1 },
@@ -475,7 +475,7 @@
       starters: ['Help me say no to <…>', 'Draft an apology for <…>', 'I need to give someone bad news: <…>']
     },
     {
-      id: 'operator', name: 'Automator', emoji: '⚙', tagline: 'Runs the day-to-day on a timer',
+      id: 'operator', name: 'Automator', emoji: '⚙', tagline: 'Runs the day-to-day on a timer', skin: 'labz_operator',
       blurb: 'Runs the day-to-day — tasks, deploys, anything on a timer. Keeps things moving and surfaces what needs you.',
       persona: 'calm', model: 'balanced', accent: '#d9a85a',
       tags: { general: 0.7, code: 0.3 },
@@ -485,7 +485,7 @@
       starters: ['Set up a daily check on <thing>', 'Walk me through deploying <X>', 'Track these tasks and remind me']
     },
     {
-      id: 'designer', name: 'Designer', emoji: '❖', tagline: 'Visuals & assets',
+      id: 'designer', name: 'Designer', emoji: '❖', tagline: 'Visuals & assets', skin: 'labz_designer',
       blurb: 'Turns rough ideas into clean, considered design — UI, layout, assets. Pairs with the PixelLab pipeline.',
       persona: 'friendly', model: 'balanced', accent: '#ffd34a',
       tags: { general: 1 },
@@ -495,7 +495,7 @@
       starters: ['Mock up a <screen / layout> for <…>', 'Improve the look of <this>', 'Generate a <sprite / icon> for <…>']
     },
     {
-      id: 'navigator', name: 'Trip Planner', emoji: '⌖', tagline: 'Routes, bookings & the day-by-day',
+      id: 'navigator', name: 'Trip Planner', emoji: '⌖', tagline: 'Routes, bookings & the day-by-day', skin: 'labz_navigator',
       blurb: 'Plans trips and outings end to end — real options, real prices, a day-by-day itinerary you can actually follow.',
       persona: 'friendly', model: 'balanced', accent: '#6fc79b',
       tags: { research: 0.7, general: 0.3 },
@@ -505,7 +505,7 @@
       starters: ['Plan a <length> trip to <place>', 'Find the best way to get from <A> to <B>', 'Build an itinerary for <event / weekend>']
     },
     {
-      id: 'curator', name: 'File Organizer', emoji: '⊞', tagline: 'Tidy files, folders & downloads',
+      id: 'curator', name: 'File Organizer', emoji: '⊞', tagline: 'Tidy files, folders & downloads', skin: 'labz_curator',
       blurb: 'Brings order to your machine — sorts the downloads pile, names things consistently, finds duplicates, never deletes without your say-so.',
       persona: 'calm', model: 'balanced', accent: '#c9a86f',
       tags: { general: 0.8, code: 0.2 },
@@ -515,7 +515,7 @@
       starters: ['Sort out my <downloads / desktop> folder', 'Find duplicate files under <folder>', 'Set up a folder structure for <project>']
     },
     {
-      id: 'muse', name: 'Brainstormer', emoji: '✺', tagline: 'Angles and ideas you have not tried',
+      id: 'muse', name: 'Brainstormer', emoji: '✺', tagline: 'Angles and ideas you have not tried', skin: 'labz_muse',
       blurb: 'Your idea partner — generates genuinely different options when you\'re stuck, pressure-tests them, and helps you pick one.',
       persona: 'witty', model: 'balanced', accent: '#c79bdc',
       tags: { general: 1 },
@@ -525,7 +525,7 @@
       starters: ['Brainstorm ideas for <…>', 'I\'m stuck on <problem> — give me angles', 'Help me name <thing>']
     },
     {
-      id: 'reviewer', name: 'Reviewer', emoji: '⊗', tagline: 'Adversarial review & QA',
+      id: 'reviewer', name: 'Reviewer', emoji: '⊗', tagline: 'Adversarial review & QA', skin: 'labz_reviewer',
       blurb: 'Stress-tests your work before it ships — hunts bugs, gaps and weak spots, and tells you how to fix them.',
       persona: 'witty', model: 'reasoning', accent: '#cf8a7d',
       tags: { code: 0.7, general: 0.3 },
@@ -535,7 +535,7 @@
       starters: ['Review this code for bugs: <file>', 'Poke holes in this plan: <…>', 'Proofread and critique this draft']
     },
     {
-      id: 'archivist', name: 'Archivist', emoji: '▤', tagline: 'Memory & knowledge',
+      id: 'archivist', name: 'Archivist', emoji: '▤', tagline: 'Memory & knowledge', skin: 'labz_archivist',
       blurb: 'Your memory — captures what matters, files it so it is findable, recalls the right context on cue. Pairs with Cortex.',
       persona: 'calm', model: 'balanced', accent: '#9fc0c4',
       tags: { general: 0.6, research: 0.4 },
@@ -545,7 +545,7 @@
       starters: ['Remember this: <…>', 'What do we know about <X>?', 'Organize my notes on <project>']
     },
     {
-      id: 'broker', name: 'Deal Finder', emoji: '⛃', tagline: 'Compare deals & call the buy',
+      id: 'broker', name: 'Deal Finder', emoji: '⛃', tagline: 'Compare deals & call the buy', skin: 'labz_broker',
       blurb: 'Prices the options side by side and gives one call — buy, wait, or which. Pick the broker to DECIDE on a purchase now; pick the scout to just watch and ping you when a price moves.',
       persona: 'direct', model: 'balanced', accent: '#8ac07a',
       tags: { research: 0.6, general: 0.4 },
@@ -565,7 +565,7 @@
       starters: ['Check <url> for accessibility barriers', 'Can my site be used with a keyboard only?', 'Is my text contrast readable?']
     },
     {
-      id: 'hiring', name: 'Hiring Manager', emoji: '◫', tagline: 'Write the role, screen it, hire fairly',
+      id: 'hiring', name: 'Hiring Manager', emoji: '◫', tagline: 'Write the role, screen it, hire fairly', skin: 'labz_hiring',
       blurb: 'Defines the job by its first six months, screens against criteria fixed before anyone was met, and interviews for evidence rather than rapport.',
       persona: 'direct', model: 'reasoning', accent: '#c0a878',
       tags: { general: 0.7, research: 0.3 },
@@ -575,7 +575,7 @@
       starters: ['Write a job post for <role>', 'Screen these applications against the role', 'What should I ask in this interview?']
     },
     {
-      id: 'processwriter', name: 'Process Writer', emoji: '▨', tagline: 'Turns how you do it into a process',
+      id: 'processwriter', name: 'Process Writer', emoji: '▨', tagline: 'Turns how you do it into a process', skin: 'labz_processwriter',
       blurb: 'Writes the procedure someone new could follow without asking a single question — decision branches, approvals and failure paths included.',
       persona: 'calm', model: 'balanced', accent: '#b0b0c8',
       tags: { general: 1 },
@@ -585,7 +585,7 @@
       starters: ['Document how I do <task>', 'Write an SOP for onboarding a client', 'Turn this into something I can hand off']
     },
     {
-      id: 'pitchwriter', name: 'Pitch Writer', emoji: '◭', tagline: 'The deck narrative, and its weak slide',
+      id: 'pitchwriter', name: 'Pitch Writer', emoji: '◭', tagline: 'The deck narrative, and its weak slide', skin: 'labz_pitchwriter',
       blurb: 'Builds the six-sentence argument a deck has to carry, sources every figure on the slide, and names the slide you will be questioned on first.',
       persona: 'direct', model: 'reasoning', accent: '#c88ab0',
       tags: { general: 0.6, research: 0.4 },
@@ -595,7 +595,7 @@
       starters: ['Help me build a pitch deck for <company>', 'What story should my deck tell?', 'Where is my deck weakest?']
     },
     {
-      id: 'translator', name: 'Translator', emoji: '⇄', tagline: 'Translate & localize docs',
+      id: 'translator', name: 'Translator', emoji: '⇄', tagline: 'Translate & localize docs', skin: 'labz_translator',
       blurb: 'Translates and localizes documents — accurate, natural in the target language, with the meaning preserved.',
       persona: 'calm', model: 'balanced', accent: '#6fb0c8',
       tags: { general: 1 },
@@ -605,7 +605,7 @@
       starters: ['Translate <file> into <language>', 'Localize this for a <locale> audience', 'Check this translation for accuracy']
     },
     {
-      id: 'herald', name: 'Digest Writer', emoji: '⚑', tagline: 'Standing digests, on a schedule',
+      id: 'herald', name: 'Digest Writer', emoji: '⚑', tagline: 'Standing digests, on a schedule', skin: 'labz_herald',
       blurb: 'Composes the recurring digest and the broadcast — gathers, distills, and sends on schedule. Pairs with cron + channels.',
       persona: 'calm', model: 'balanced', accent: '#c4a24e',
       tags: { research: 0.5, general: 0.5 },
@@ -618,7 +618,7 @@
        Each covers a habit the interests engine can actually observe (outreach, community, search traffic)
        so matchArchetype has more of the business long tail to stage when the evidence points there. ---- */
     {
-      id: 'closer', name: 'Deal Closer', emoji: '✪', tagline: 'Outreach, follow-ups & deals',
+      id: 'closer', name: 'Deal Closer', emoji: '✪', tagline: 'Outreach, follow-ups & deals', skin: 'labz_closer',
       blurb: 'Works the pipeline the prospector fills — personalized outreach drafts, timed follow-up sequences, and a deal board that never lets a warm lead go cold.',
       persona: 'direct', model: 'balanced', accent: '#d98a5a',
       tags: { general: 0.7, research: 0.3 },
@@ -628,7 +628,7 @@
       starters: ['Draft outreach for <these leads>', 'Build a follow-up sequence for <deal / list>', 'What deals are going cold?']
     },
     {
-      id: 'steward', name: 'Community Manager', emoji: '⌂', tagline: 'Keeps your audience tended',
+      id: 'steward', name: 'Community Manager', emoji: '⌂', tagline: 'Keeps your audience tended', skin: 'labz_steward',
       blurb: 'Tends your community — tracks the pulse across your spaces, drafts replies and prompts that keep it alive, and flags the fires early.',
       persona: 'friendly', model: 'balanced', accent: '#9bbf6f',
       tags: { general: 0.8, research: 0.2 },
@@ -638,7 +638,7 @@
       starters: ['Read the pulse of <community / space>', 'Draft replies to <threads>', 'What should we do to liven up <community>?']
     },
     {
-      id: 'optimizer', name: 'SEO Specialist', emoji: '⌕', tagline: 'Gets your work found in search',
+      id: 'optimizer', name: 'SEO Specialist', emoji: '⌕', tagline: 'Gets your work found in search', skin: 'labz_optimizer',
       blurb: 'Gets your work found — keyword and intent research from live results, on-page audits with concrete fixes, and honest traffic expectations.',
       persona: 'direct', model: 'balanced', accent: '#6f9fd9',
       tags: { research: 0.6, general: 0.4 },
