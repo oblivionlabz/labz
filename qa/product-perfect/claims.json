@@ -18,7 +18,7 @@
   "expectedClaimCount": 37,
   "releaseSurface": {
     "algorithm": "sha256",
-    "sourceCommit": "8f51fb5a76b1f26af26f18821af94be2f11dced6",
+    "sourceCommit": "f3eb7dc12b85d58dccfdd059132b1c928548c94d",
     "pathSetSha256": "fdc3577841564bad94e1143aa1e30b8776abeda8b032189834f2aead7de86e44",
     "files": [
       {
@@ -423,8 +423,8 @@
       },
       {
         "path": "frontend/app/data-shim.js",
-        "bytes": 6899,
-        "sha256": "488941dc8e17e2a48a38a6404cda05ae2ed8262dda8bf477a34d2464a0a81816"
+        "bytes": 12460,
+        "sha256": "ddd2483e6e451a74b19c60c89fb73ef356db49ff9944ed161bb7ae0c308a582c"
       },
       {
         "path": "frontend/app/datareset.js",
@@ -678,8 +678,8 @@
       },
       {
         "path": "frontend/app/marketplace.js",
-        "bytes": 274492,
-        "sha256": "3efa975b2e64efd9ac36352d7085d4b7065648d3f821687ac9bac9c2d75c0cfa"
+        "bytes": 275538,
+        "sha256": "4acc117b2657ccbabfbd9f3f48f1b45b484a93130ecf6061ab7036e642044ef9"
       },
       {
         "path": "frontend/app/mint.js",
@@ -1138,8 +1138,8 @@
       },
       {
         "path": "frontend/app/specialties.js",
-        "bytes": 11468,
-        "sha256": "ef00e20f33937e4fc3012953079cdad682dfae2f84f59b2bfbdd1aa2b710738a"
+        "bytes": 11645,
+        "sha256": "24083068e525b59a565546a56585212171697820255d2e8426426a59db0120cd"
       },
       {
         "path": "frontend/app/starters.js",
