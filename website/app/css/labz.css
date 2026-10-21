@@ -1,0 +1,130 @@
+/* OBLIVION LABZ — labz.css: the Solo Leveling system-window skin.
+   ============================================================================
+   The Labz identity (research/labz-assets/DESIGN-DNA.md, mockups dna-home /
+   dna-comms / dna-crew / dna-conns / dna-awaken). Every rule here is scoped to
+   `body.theme-void`, so the vendor phosphors (amber/green/blue/purple/red/white)
+   render EXACTLY as shipped — this file is inert until the VOID theme is picked.
+
+   The law, from the mockups:
+     1. SYSTEM WINDOW — a panel reads as a holographic window: thin glowing
+        border, ONE diagonally clipped corner, faint inner gradient, scanlines.
+     2. SECOND ACCENT — the vendor system has one phosphor (--ph). Labz adds a
+        shadow-violet (--labz-violet) for aura/summon energy. --ph stays the
+        structural colour (borders, rules, bezel) so every vendor recipe keeps
+        working; violet only ever ADDS glow, never replaces a line.
+     3. RESTRAINT — glow on active/hover only, motion 150-400ms, never blocks
+        input. The ornate-metal era lives in the corner ticks, not in filigree
+        on every surface.
+   Nothing here redefines a --ph/--panel token (style.css body.theme-* owns
+   those); this file only layers the window language on top. */
+
+/* ---- 1. the window: clipped corner + violet aura under the cyan bezel ----
+   The vendor bezel (style.css --bezel, on body) already paints the 2px phosphor
+   ring — in VOID that ring IS system-cyan. We add the diagonal cut on the top
+   right (the Solo Leveling window signature) and a violet under-glow so the
+   window reads as floating shadow-magic rather than a flat CRT panel.
+   clip-path replaces the top-right radius only; the bezel's outer ring follows
+   the clip, which is the point: the cut corner is the shape. */
+body.theme-void .term {
+  border-top-right-radius: 0;
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+  background:
+    radial-gradient(ellipse 130% 100% at 50% 0%, rgba(var(--labz-violet-rgb), 0.10), transparent 46%),
+    radial-gradient(ellipse 130% 100% at 50% 0%, var(--ph-glow2), transparent 42%),
+    rgba(13, 10, 22, 0.97);
+  box-shadow:
+    0 0 0 2px var(--ph),
+    0 0 0 3.5px rgba(0, 0, 0, 0.9),
+    0 0 26px rgba(var(--labz-violet-rgb), 0.22),
+    0 0 22px var(--ph-glow2),
+    0 12px 34px rgba(0, 0, 0, 0.85),
+    inset 0 0 56px rgba(0, 0, 0, 0.85),
+    inset 0 1px 0 rgba(var(--ph-bright-rgb), 0.07);
+}
+/* the cut corner gets its own lit edge — a short cyan stroke across the bevel,
+   drawn with a gradient on a pseudo-element so it survives the clip */
+body.theme-void .term::after {
+  content: ""; position: absolute; top: 0; right: 0; width: 32px; height: 32px;
+  pointer-events: none; z-index: 2;
+  background: linear-gradient(225deg,
+    transparent 0 10px,
+    var(--ph) 10px 11.5px,
+    rgba(var(--labz-violet-rgb), 0.9) 11.5px 13px,
+    transparent 13px);
+}
+/* window titles: the labz.net editorial voice — numbered, letterspaced, calm */
+body.theme-void .term-title { text-shadow: 0 0 10px rgba(var(--labz-violet-rgb), 0.35); }
+
+/* ---- 2. the rails: left dock + chat panel read as the same window law ----
+   Specificity note: the vendor glass law (body.glass-demo:not(.hud-mode) #screen-game :is(#left…))
+   is (2 ids, 2 classes); a plain body.theme-void rule LOSES that fight and the violet never
+   lands (measured live). Matching the vendor prefix plus .theme-void wins on order, and the
+   :not(.hud-mode) mirror keeps HUD mode exactly as shipped. */
+body.glass-demo.theme-void:not(.hud-mode) #screen-game :is(#left, #chat-panel) {
+  box-shadow:
+    0 0 0 1px var(--ph-dim),
+    0 0 18px rgba(var(--labz-violet-rgb), 0.14),
+    inset 0 0 40px rgba(0, 0, 0, 0.6);
+}
+body.theme-void #left > h3, body.theme-void #chat-panel > h3 {
+  border-bottom-color: rgba(var(--labz-violet-rgb), 0.35);
+}
+
+/* ---- 3. comms: the agent's voice carries the violet aura, the user's does not.
+   Solo Leveling law — the SYSTEM speaks in glow. User bubbles stay parchment-
+   quiet so the two sides never blur. ---- */
+body.theme-void #chat-panel :is(#chat-log, #gc-log) > .cmsg:not(.user) {
+  border-left: 2px solid rgba(var(--labz-violet-rgb), 0.75);
+  box-shadow: -6px 0 18px rgba(var(--labz-violet-rgb), 0.12);
+}
+body.theme-void #chat-panel .cmsg-typing { color: var(--labz-violet, var(--ph)); }
+
+/* ---- 4. crew rows: each agent is a rank card — violet edge on selection,
+   cyan on hover (the mockup's SUMMON/INSPECT states). Additive only: the row
+   shape, density and layout stay exactly as cabinet-clean drew them.
+   Same specificity law as §2 — the vendor glass rules carry body.glass-demo,
+   so the Labz rules carry it too and win on source order. ---- */
+body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row:is(:hover, :focus-visible) {
+  box-shadow: inset 0 0 0 1px rgba(var(--labz-violet-rgb), 0.55), 0 0 14px rgba(var(--labz-violet-rgb), 0.18);
+}
+body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row.selected {
+  box-shadow: inset 0 0 0 1px var(--ph), 0 0 16px var(--ph-glow2), 0 0 26px rgba(var(--labz-violet-rgb), 0.16);
+}
+
+/* ---- 5. the command bar: engraved console, cyan cursor pool ---- */
+body.glass-demo.theme-void:not(.hud-mode) #screen-game #bottombar {
+  box-shadow: 0 -2px 0 rgba(var(--labz-violet-rgb), 0.35), 0 -14px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- 6. splash: the awakening ceremony. The rift is violet, the spill is
+   cyan, the floor grid keeps the vendor scroll. ---- */
+body.theme-void #screen-title::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background: radial-gradient(ellipse 60% 46% at 50% 42%, rgba(var(--labz-violet-rgb), 0.16), transparent 70%);
+}
+body.theme-void .sp-logo {
+  filter: drop-shadow(0 0 18px rgba(var(--labz-violet-rgb), 0.55)) drop-shadow(0 0 60px var(--ph-glow2));
+}
+body.theme-void .sp-grid {
+  background:
+    repeating-linear-gradient(90deg, rgba(var(--labz-violet-rgb), .26) 0 1px, transparent 1px 64px),
+    repeating-linear-gradient(0deg, rgba(var(--ph-rgb), .22) 0 1px, transparent 1px 56px);
+}
+
+/* ---- 7. scanlines: the system-window texture. The vendor CRT already runs a
+   scanline layer; VOID just lifts its presence a hair so windows read as
+   projected panels. Kept tiny — the vendor measured their scan law and we do
+   not fight a measurement. ---- */
+body.theme-void .term:not(.pw) .term-body { text-shadow: 0 0 6px rgba(var(--ph-rgb), 0.10); }
+
+/* ---- 8. focus: the summon ring. Cyan core, violet halo — the same two-tone
+   the mockups use for the selected card. ---- */
+body.theme-void :is(button, [role="button"], input, select, textarea, [tabindex]):focus-visible {
+  outline-color: var(--ph);
+  box-shadow: 0 0 0 1px var(--ph), 0 0 12px rgba(var(--labz-violet-rgb), 0.45);
+}
+
+/* reduced motion: the aura stays, the breath goes — same law as the vendor CRT */
+@media (prefers-reduced-motion: reduce) {
+  body.theme-void .term { animation: none; }
+}
