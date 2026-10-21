@@ -77,7 +77,6 @@ body.theme-void #chat-panel :is(#chat-log, #gc-log) > .cmsg:not(.user) {
   border-left: 2px solid rgba(var(--labz-violet-rgb), 0.75);
   box-shadow: -6px 0 18px rgba(var(--labz-violet-rgb), 0.12);
 }
-body.theme-void #chat-panel .cmsg-typing { color: var(--labz-violet, var(--ph)); }
 
 /* ---- 4. crew rows: each agent is a rank card — violet edge on selection,
    cyan on hover (the mockup's SUMMON/INSPECT states). Additive only: the row
@@ -105,10 +104,15 @@ body.theme-void .sp-emblem {
   display: block; width: min(22vh, 190px); height: auto; margin-bottom: 6px;
   filter: drop-shadow(0 0 22px rgba(var(--labz-violet-rgb), 0.5)) drop-shadow(0 0 70px var(--ph-glow2));
 }
-body.theme-void #screen-title::before {
+/* the rift halo behind the emblem. NOTE: the splash section is #screen-splash —
+   an earlier pass wrote #screen-title (a screen that does not exist) and the rule
+   was dead; this selector is the measured one. */
+body.theme-void #screen-splash::before {
   content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
-  background: radial-gradient(ellipse 60% 46% at 50% 42%, rgba(var(--labz-violet-rgb), 0.16), transparent 70%);
+  background: radial-gradient(ellipse 54% 40% at 50% 36%, rgba(var(--labz-violet-rgb), 0.20), transparent 68%);
+  animation: labz-halo 7s ease-in-out infinite;
 }
+@keyframes labz-halo { 0%, 100% { opacity: .72; } 50% { opacity: 1; } }
 body.theme-void .sp-logo {
   filter: drop-shadow(0 0 18px rgba(var(--labz-violet-rgb), 0.55)) drop-shadow(0 0 60px var(--ph-glow2));
 }
@@ -131,7 +135,175 @@ body.theme-void :is(button, [role="button"], input, select, textarea, [tabindex]
   box-shadow: 0 0 0 1px var(--ph), 0 0 12px rgba(var(--labz-violet-rgb), 0.45);
 }
 
-/* reduced motion: the aura stays, the breath goes — same law as the vendor CRT */
+/* ============================================================
+   DEPTH LAYER — the mockups' atmosphere, not just their palette.
+   ============================================================
+   The mockups (dna-home / labz-ui-home) get their depth from four things a
+   token swap cannot produce: (1) a living void BEHIND the windows, (2) light
+   that moves — specular sweeps and event glow, (3) choreographed entrances,
+   (4) the portal itself breathing. This section builds exactly those, and
+   nothing else: per the 60fps law every animation here touches ONLY
+   transform / opacity (compositor-only — no layout, no paint-per-frame),
+   and the whole layer collapses under prefers-reduced-motion.
+   Pseudo-element claims were measured first: #screen-game, #stage-wrap,
+   #chat-log, .cmsg, .term-head, .term-title, .sp-center carry no vendor
+   ::before/::after in any sheet, so these layers cannot collide. */
+
+/* ---- D1. the living void: nebula + drifting motes behind the windows.
+   #screen-game is a grid (app.css:35) whose bed is a flat glass gradient
+   (glass-demo.css:394) — the station currently floats on a dead fill. The
+   ::before paints the violet nebula; the ::after paints the mote field. Both
+   sit at z-index:-1: above #screen-game's own bed, BELOW every panel (the
+   panels are z0/z8/z50 in-flow). For that to be deterministic in BOTH flicker
+   modes, VOID pins isolation:isolate on the screen itself (the vendor only
+   pins it under body:not(.no-flicker), app.css:2416). ---- */
+body.theme-void #screen-game.active { isolation: isolate; }
+body.theme-void #screen-game::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(ellipse 46% 34% at 78% 16%, rgba(var(--labz-violet-rgb), 0.13), transparent 70%),
+    radial-gradient(ellipse 38% 30% at 10% 84%, rgba(var(--ph-rgb), 0.07), transparent 72%),
+    radial-gradient(ellipse 66% 48% at 50% 55%, rgba(var(--labz-violet-rgb), 0.06), transparent 74%);
+  animation: labz-nebula 14s ease-in-out infinite;
+}
+body.theme-void #screen-game::after {
+  content: ""; position: absolute; inset: -60px; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(1.4px 1.4px at 12% 22%, rgba(var(--ph-rgb), .5), transparent 60%),
+    radial-gradient(1.2px 1.2px at 34% 68%, rgba(var(--labz-violet-rgb), .55), transparent 60%),
+    radial-gradient(1.6px 1.6px at 58% 12%, rgba(var(--ph-rgb), .38), transparent 60%),
+    radial-gradient(1.1px 1.1px at 71% 44%, rgba(var(--labz-violet-rgb), .48), transparent 60%),
+    radial-gradient(1.5px 1.5px at 88% 76%, rgba(var(--ph-rgb), .42), transparent 60%),
+    radial-gradient(1.2px 1.2px at 24% 90%, rgba(var(--labz-violet-rgb), .4), transparent 60%),
+    radial-gradient(1.3px 1.3px at 46% 36%, rgba(var(--ph-rgb), .3), transparent 60%),
+    radial-gradient(1.4px 1.4px at 92% 8%, rgba(var(--labz-violet-rgb), .35), transparent 60%);
+  background-size: 46% 52%, 61% 44%, 53% 67%, 44% 58%, 57% 49%, 49% 63%, 63% 51%, 51% 57%;
+  animation: labz-motes-a 26s ease-in-out infinite alternate;
+}
+@keyframes labz-nebula { 0%, 100% { opacity: .65; } 50% { opacity: 1; } }
+@keyframes labz-motes-a {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(0, -60px, 0); }   /* drifts up, then back: alternate
+    means no loop-point snap — a linear loop would seam every 26s because the
+    60px travel is not a multiple of any tile track. */
+}
+/* the second mote field is a mirrored copy of the first via background-position
+   offsets baked above; a second element would need markup, so the parallax reads
+   through the differing background-size tracks instead — same drift, different
+   apparent speed. */
+
+/* ---- D2. specular sweep across the system windows. The mockups' panels catch
+   light: a slow sheen crosses the glass, like the window is a real projected
+   surface. Rides .term-head::before (unclaimed — the vendor uses ::after for
+   the hairline rule, motion.css:507). The bar IS the pseudo-element and moves
+   via transform: translateX — never background-position (paint). The head does
+   not clip, but .term does (style.css:757 overflow:hidden), so the bar enters
+   and exits at the window edge on its own. z7 = the vendor chrome layer. ---- */
+body.theme-void .term:not(.feature):not(.pw) .term-head { position: relative; }
+body.theme-void .term:not(.feature):not(.pw) .term-head::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 46%;
+  pointer-events: none; z-index: 7;
+  background: linear-gradient(105deg,
+    transparent 0 18%,
+    rgba(var(--ph-bright-rgb), 0.10) 46%,
+    rgba(var(--labz-violet-rgb), 0.14) 58%,
+    transparent 82% 100%);
+  transform: translateX(240%);
+  animation: labz-sheen 9s var(--ease-soft, cubic-bezier(.4,0,.2,1)) infinite;
+}
+@keyframes labz-sheen {
+  0%   { transform: translateX(240%); opacity: 0; }
+  10%  { opacity: 1; }
+  40%  { transform: translateX(-160%); opacity: 1; }
+  48%  { opacity: 0; }
+  100% { transform: translateX(-160%); opacity: 0; }
+}
+
+/* ---- D3. the transcript as a living feed. The mockups' activity feed GLOWS
+   when the world moves. Vendor entrance (comms.css:207 comms-msg-in) already
+   fades rows in; VOID adds the arrival flash — but per the 60fps law the flash
+   is NOT an animated box-shadow (paint): the glow lives on a static ::after
+   layer and only its OPACITY animates. .cmsg is already position:relative
+   (app.css:629), so the layer anchors free of charge. One-shot, never loops;
+   history replay is exempt via the vendor's own .no-anim law (chat.js:2690).
+   Structural rows are EXCLUDED by measurement, not taste: .cmsg-timebreak owns
+   its own ::before/::after divider rules (comms.css:39-45) and a higher-
+   specificity rule here would clobber them; broadcast/trim-marker are feed
+   furniture (app.css:2375), not speech. ---- */
+body.theme-void #chat-panel :is(#chat-log, #gc-log) > .cmsg:not(.user):not(.no-anim):not(.cmsg-timebreak):not(.broadcast):not(.trim-marker)::after {
+  content: ""; position: absolute; inset: -2px -6px -2px -2px; pointer-events: none;
+  border-radius: 4px;
+  box-shadow: -6px 0 26px rgba(var(--labz-violet-rgb), 0.55), -6px 0 44px rgba(var(--ph-rgb), 0.20);
+  animation: labz-arrive 1.1s var(--ease-out, cubic-bezier(.22,.61,.36,1)) backwards;
+}
+@keyframes labz-arrive { 0% { opacity: 0; } 22% { opacity: 1; } 100% { opacity: 0; } }
+/* the live work card speaks in violet: the vendor already blinks its ▮ dot
+   (comms-blink, comms.css:325) — VOID only recolors the VERB line, no second
+   animation on the same element. */
+body.theme-void #chat-panel #comms-presence .cp-verb { color: var(--labz-violet, var(--ph)); }
+
+/* ---- D4. the portal behind the world feed. The stage is the station's
+   window into the lab; in the mockups it sits inside a violet rift. A glow
+   ring around #stage-wrap (box-shadow, static — never animated, per the
+   box-shadow-is-paint law) plus a slow breathing halo on an unclaimed
+   ::after layer (opacity-only). ---- */
+body.theme-void #stage-wrap {
+  box-shadow:
+    0 0 0 1px var(--ph-dim),
+    0 0 22px rgba(var(--labz-violet-rgb), 0.16),
+    0 0 46px rgba(var(--labz-violet-rgb), 0.08),
+    inset 0 0 30px rgba(0, 0, 0, 0.55);
+}
+body.theme-void #stage-wrap::after {
+  content: ""; position: absolute; inset: -1px; pointer-events: none; z-index: 5;
+  border-radius: inherit;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 62%, rgba(var(--labz-violet-rgb), 0.10) 100%);
+  animation: labz-portal 8s ease-in-out infinite;
+}
+@keyframes labz-portal { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+
+/* ---- D5. crew rows: the summon lift. Hover raises the card 2px and lights
+   the violet edge — transform + opacity of a pre-lit shadow, per the
+   micro-interaction law (one property family, 120-150ms). The vendor already
+   transitions these props (motion.css floor); VOID only adds the lift. ---- */
+body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row {
+  transition:
+    transform var(--t-fast, 120ms) var(--ease-soft, cubic-bezier(.4,0,.2,1)),
+    box-shadow var(--t-fast, 120ms) var(--ease-soft, cubic-bezier(.4,0,.2,1));
+}
+body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row:hover { transform: translateY(-2px); }
+body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row:active { transform: translateY(0); }
+
+/* ---- D6. the command console wakes on focus. The mockups' engraved console
+   pools cyan light under the cursor; the bottombar lights when the composer
+   has focus — a state change, not a loop, so it earns its glow. ---- */
+body.glass-demo.theme-void:not(.hud-mode) #screen-game #bottombar:has(:focus-visible) {
+  box-shadow:
+    0 -2px 0 rgba(var(--labz-violet-rgb), 0.55),
+    0 -18px 44px rgba(var(--labz-violet-rgb), 0.14),
+    0 -14px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ---- D7. splash ceremony: the emblem's rift swirls. The vendor already
+   breathes the wordmark (sp-breathe) and twinkles the stars; VOID adds a slow
+   rotation to the emblem's violet halo via the drop-shadow layer — kept as a
+   transform on the img (rotate the whole emblem a hair? no: the emblem is
+   static art, so the ceremony is the halo pulsing in counter-rhythm to the
+   wordmark, opacity-only, plus a one-time power-in scale on first paint). ---- */
+body.theme-void .sp-emblem { animation: labz-rift 5.5s ease-in-out infinite; }
+@keyframes labz-rift { 0%, 100% { opacity: .88; transform: scale(1); } 50% { opacity: 1; transform: scale(1.03); } }
+
+/* reduced motion: the aura stays, the breath goes — same law as the vendor CRT.
+   Every labz-* animation collapses; static depth (shadows, nebula at rest,
+   window law) survives, so the UI keeps its depth without its motion. */
 @media (prefers-reduced-motion: reduce) {
-  body.theme-void .term { animation: none; }
+  body.theme-void .term,
+  body.theme-void #screen-game::before,
+  body.theme-void #screen-game::after,
+  body.theme-void #screen-splash::before,
+  body.theme-void .term:not(.feature):not(.pw) .term-head::before,
+  body.theme-void #chat-panel :is(#chat-log, #gc-log) > .cmsg::after,
+  body.theme-void #stage-wrap::after,
+  body.theme-void .sp-emblem { animation: none; }
+  body.glass-demo.theme-void:not(.hud-mode) #crew .crew-row { transition: none; transform: none; }
 }
