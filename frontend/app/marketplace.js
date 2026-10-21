@@ -259,6 +259,7 @@ const Marketplace = (() => {
     modelSettingsOpen = false;
     const builtins = Specialties.builtins();
     focusAgent = (ctx.currentSpecialtyId && Specialties.get(ctx.currentSpecialtyId)) ? ctx.currentSpecialtyId : (builtins[0] && builtins[0].id) || null;
+    pickedSummonSkin = specSkin(focusAgent);   // the bay opens on the focused class's OWN character, not the shared default
     focusRecipe = hasRecipes() ? ((Recipes.builtins()[0] && Recipes.builtins()[0].id) || null) : null;
 
     root = mkEl('div', 'mkt-host');
@@ -845,9 +846,18 @@ const Marketplace = (() => {
   // STAGE (shared SkinStage) plays the picked/hovered skin's real walk cycle big enough to actually read —
   // a 40px still of a chunky sprite is unidentifiable. The picker wells are large + smooth-downscaled so the
   // Commander can judge a skin at a glance; the selected well carries the bracket-ring active treatment.
+  // the character a class previews as: the catalog's own skin field when it names a
+  // real DATA.SKINS entry, else the station default. One resolver so the dossier, the
+  // picker's selected well, and the summon pick can never disagree.
+  function specSkin(id) {
+    const s = id && typeof Specialties !== 'undefined' && Specialties.get ? Specialties.get(id) : null;
+    const sk = s && s.skin;
+    return (sk && typeof DATA !== 'undefined' && DATA.SKINS && DATA.SKINS[sk]) ? sk : ((typeof DATA !== 'undefined' && DATA.DEFAULT_SKIN) || null);
+  }
+
   function summonSkinBarHTML() {
     if (!(ctx && ctx.mode === 'pick' && ctx.summon) || typeof DATA === 'undefined' || !DATA.SKINS) return '';
-    if (!pickedSummonSkin || !DATA.SKINS[pickedSummonSkin]) pickedSummonSkin = DATA.DEFAULT_SKIN;
+    if (!pickedSummonSkin || !DATA.SKINS[pickedSummonSkin]) pickedSummonSkin = specSkin(focusAgent) || DATA.DEFAULT_SKIN;
     const thumbs = Object.keys(DATA.SKINS).map(id => {
       const sk = DATA.SKINS[id];
       return '<button type="button" class="skin-thumb' + (id === pickedSummonSkin ? ' sel' : '') +
@@ -2037,6 +2047,10 @@ const Marketplace = (() => {
     if (!id) return;
     try { if (typeof ProspectStore !== 'undefined' && ProspectStore.recommendationVerdict) ProspectStore.recommendationVerdict(tab === 'recipes' ? 'recipe' : 'recruit', id, 'opened', 'accepted'); } catch (_) {}
     if (tab === 'recipes') focusRecipe = id; else focusAgent = id;
+    // each class previews as ITS OWN character (the catalog's skin field); switching class re-seeds the
+    // summon preview so the bay never shows the same face for every class. The Commander can still override
+    // in the picker below — that pick lives until they switch class.
+    if (tab === 'agents') pickedSummonSkin = specSkin(id);
     sfx('click'); renderDossier();
     const dos = root.querySelector('#mkt-dossier'); if (dos) dos.scrollTop = 0;
     const mkt = root.querySelector('.mkt'); if (mkt) mkt.classList.add('show-dossier');

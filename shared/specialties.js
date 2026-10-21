@@ -75,7 +75,7 @@
      is satisfied by this class's kit (grounded-classes law). */
   const BUILTINS = [
     {
-      id: 'strategist', name: 'Strategist', emoji: '✦', tagline: 'Direction, bets & next moves',
+      id: 'strategist', name: 'Strategist', emoji: '✦', tagline: 'Direction, bets & next moves', skin: 'labz_strategist',
       blurb: 'Turns ambition into a direction — sizes the market, reads the competition, and ranks your next moves by leverage.',
       persona: 'direct', model: 'reasoning', accent: '#ffaa33',
       tags: { research: 0.5, general: 0.5 },

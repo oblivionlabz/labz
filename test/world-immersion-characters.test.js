@@ -134,7 +134,7 @@ const appearance = { light: { color: [96, 168, 240], strength: 0.5, dx: 1, dy: 0
 test('normal desktop roster renders the selected refresh without preview flags, with planted walking feet', async () => {
   const selected = JSON.parse(fs.readFileSync(path.join(frontend, 'assets/skin-study-0914/runtime-motion.json')));
   const { sprites, catalog } = await harness(true);
-  assert.equal(Object.keys(catalog).length, 54); // 53 vendor + approved_labzshade (Oblivion Labz original, 2026-10-21)
+  assert.equal(Object.keys(catalog).length, 55); // 53 vendor + labzshade + labz_strategist (Oblivion Labz originals)
   for (const skin of selected.skins) {
     assert.equal(catalog[skin.skin].set, skin.renderSet, skin.skin + ' keeps its saved ID');
     await sprites.ensureSkin(skin.skin);

@@ -85,6 +85,7 @@
       persona: s.persona || 'friendly',              // recommended personaId (the Commander can override)
       model: TIERS[s.model] ? s.model : 'balanced',   // tier KEY (see TIERS); advisory
       accent: s.accent || '#ffaa33',                  // suggested avatar suit
+      skin: s.skin || null,                           // suggested character (a DATA.SKINS id); the bay previews the class as its own face, the Commander can override at summon
       tags: Object.freeze(normTags(s.tags)),          // interest-lane weights the recommender ranks by
       starters: Object.freeze((s.starters || []).slice()),
       // ---- LOADOUT (Class Loadouts S1): applied at summon; the user can override everything after ----

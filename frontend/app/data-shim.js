@@ -19,6 +19,7 @@ function registerAgent(id, color) {
    here + a matching sprite set in assets/sprites/manifest.json. `scale` is the
    per-set downscale applied at tint time (crew sprites render on a 92px canvas). */
 DATA.SKINS = {
+  labz_strategist: {"name":"Strategist","set":"labz_strategist","scale":0.25,"sourceStandingHeight":76},
   /* OBLIVION LABZ original — generated for this station (a770 Qwen-Image key
      poses -> research/labz-assets/sprite-factory.py -> approved_labzshade/).
      Geometry measured off approved_android: 76px standing, foot line y=112. */
